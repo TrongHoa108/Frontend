@@ -101,7 +101,7 @@ export function AboutPage() {
           <div className="section-head"><h2>Ba hướng đi, một sự đồng hành.</h2></div>
           <div className="method-grid">
             {methods.map((item) => (
-              <article key={item.title}>
+              <article className="method" key={item.title}>
                 <h3>{item.title}</h3>
                 <p>{item.text}</p>
               </article>
