@@ -636,6 +636,11 @@ tbody tr:hover { background: rgba(14, 79, 158, 0.045); }
 .fab-fb { background: #1877f2; }
 .fab-chat { background: var(--pine); border: 0; }
 .fab-chat.on { background: var(--pine-deep); }
+.fab-top {
+  background: var(--pine-deep);
+  border: 0;
+  animation: chat-in .28s var(--ease);
+}
 .fab-phone::after {
   content: "";
   position: absolute;

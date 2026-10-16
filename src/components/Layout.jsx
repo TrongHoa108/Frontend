@@ -27,6 +27,7 @@ export default function Layout({ children }) {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [dock, setDock] = useState(false);
+  const [toTop, setToTop] = useState(false);
   const [chat, setChat] = useState(false);
   const [progress, setProgress] = useState(0);
 
@@ -68,6 +69,7 @@ export default function Layout({ children }) {
     const onScroll = () => {
       setScrolled(window.scrollY > 8);
       setDock(window.scrollY > 420);
+      setToTop(window.scrollY > 420);
       const height = document.documentElement.scrollHeight - window.innerHeight;
       setProgress(height > 0 ? (window.scrollY / height) * 100 : 0);
     };
@@ -169,6 +171,22 @@ export default function Layout({ children }) {
         <a href={center.zalo} target="_blank" rel="noreferrer">Nhắn Zalo</a>
       </div>
       <aside className="float-actions" aria-label="Liên hệ nhanh">
+        {toTop ? (
+          <button
+            className="fab fab-top"
+            type="button"
+            data-tip="Lên đầu trang"
+            aria-label="Lên đầu trang"
+            onClick={() => {
+              const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+              window.scrollTo({ top: 0, behavior: reduce ? "auto" : "smooth" });
+            }}
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path fill="currentColor" d="M12 7.2 5.8 13.4a1 1 0 0 0 1.4 1.4L12 10l4.8 4.8a1 1 0 0 0 1.4-1.4L12 7.2Z" />
+            </svg>
+          </button>
+        ) : null}
         <a className="fab fab-phone" href={center.phoneHref} data-tip={`Gọi ${center.phoneDisplay}`} aria-label={`Gọi ${center.phoneDisplay}`}>
           <svg viewBox="0 0 24 24" aria-hidden="true">
             <path fill="currentColor" d="M6.6 10.8a15.05 15.05 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1.02-.24c1.12.37 2.33.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.57 3.58a1 1 0 0 1-.25 1.02L6.6 10.8Z" />
