@@ -150,7 +150,6 @@ export default function Home() {
               <Link to={`/khoa-hoc/${course.slug}`} className={index === 0 ? "course-card wide" : "course-card"} key={course.slug} data-reveal>
                 <figure><img src={course.image} alt="" /></figure>
                 <div className="course-body">
-                  <span className="pill">{course.kicker}</span>
                   <h3>{course.title}</h3>
                   <p>{course.summary}</p>
                   <span className="more">Xem chương trình →</span>

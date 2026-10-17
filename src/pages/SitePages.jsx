@@ -41,7 +41,6 @@ function CourseGrid({ items }) {
         <Link to={`/khoa-hoc/${course.slug}`} className="course-card" key={course.slug}>
           <figure><img src={course.image} alt="" /></figure>
           <div className="course-body">
-            <span className="pill">{course.kicker}</span>
             <h3>{course.title}</h3>
             <p>{course.promise}</p>
             <p>{course.summary}</p>
@@ -115,7 +114,6 @@ export function AboutPage() {
             <Link className="course-card" to={`/khoa-hoc/${course.slug}`} key={course.slug}>
               <figure><img src={course.image} alt="" /></figure>
               <div className="course-body">
-                <span className="pill">{course.kicker}</span>
                 <h3>{course.title}</h3>
                 <p>{course.summary}</p>
               </div>
@@ -124,7 +122,6 @@ export function AboutPage() {
           <Link className="course-card" to="/tu-van-tuyen-sinh">
             <figure><img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=1200&q=80" alt="" /></figure>
             <div className="course-body">
-              <span className="pill">Tuyển sinh</span>
               <h3>Tư vấn chương trình học</h3>
               <p>Đại học, cao đẳng, trung cấp và Văn bằng 2 Ngôn ngữ Anh.</p>
             </div>
@@ -459,7 +456,7 @@ export function CoursePage() {
             {related.map((item) => (
               <Link className="course-card" to={`/khoa-hoc/${item.slug}`} key={item.slug}>
                 <figure><img src={item.image} alt="" /></figure>
-                <div className="course-body"><span className="pill">{item.kicker}</span><h3>{item.title}</h3><p>{item.promise}</p></div>
+                <div className="course-body"><h3>{item.title}</h3><p>{item.promise}</p></div>
               </Link>
             ))}
           </div>
